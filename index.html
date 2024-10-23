@@ -35,11 +35,17 @@
         <input type="text" id="taskInput" class="form-control" placeholder="Yeni görev ekle...">
         <button id="addTask" class="btn btn-primary mt-2">Ekle</button>
         <ul id="taskList" class="list-group mt-3"></ul>
-        
+
         <!-- Toast Notification -->
         <div class="toast" id="toast" style="position: absolute; top: 20px; right: 20px; display: none;">
             <div class="toast-body" id="toastMessage"></div>
         </div>
+    </div>
+    <div id="menu-container"><button class="filter-button" data-category="Sushi">Sushi</button>
+        <button class="filter-button" data-category="Noodles">Noodles</button>
+        <button class="filter-button" data-category="Appetizers">Appetizers</button>
+        <button class="filter-button" data-category="Main Course">Main Course</button>
+        <button class="filter-button" data-category="Drinks">Drinks</button>
     </div>
 
     <script src="script.js"></script>
