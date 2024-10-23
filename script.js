@@ -1,17 +1,14 @@
-// DOM elementlerini seçiyoruz
 const taskInput = document.getElementById('taskInput');
 const addTaskButton = document.getElementById('addTask');
 const taskList = document.getElementById('taskList');
 const toast = document.getElementById('toast');
 const toastMessage = document.getElementById('toastMessage');
 
-// Local Storage'dan görevleri al
 function loadTasks() {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     tasks.forEach(task => addTaskToDOM(task));
 }
 
-// Görevi DOM'a ekleyen fonksiyon
 function addTaskToDOM(task) {
     const listItem = document.createElement('li');
     listItem.textContent = task;
@@ -38,7 +35,6 @@ function addTaskToDOM(task) {
     taskList.appendChild(listItem);
 }
 
-// Görev ekleme fonksiyonu
 function addTask() {
     const task = taskInput.value.trim();
     if (task === '') {
@@ -51,7 +47,6 @@ function addTask() {
     saveTasks();
 }
 
-// Görevleri Local Storage'a kaydet
 function saveTasks() {
     const tasks = [];
     document.querySelectorAll('.list-group-item').forEach(item => {
@@ -60,7 +55,6 @@ function saveTasks() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-// Toast bildirimini göster
 function showToast(message) {
     toastMessage.textContent = message;
     toast.style.display = 'block';
@@ -69,7 +63,6 @@ function showToast(message) {
     }, 3000);
 }
 
-// Event listener ekle
 addTaskButton.addEventListener('click', addTask);
 loadTasks();
 
@@ -120,7 +113,7 @@ const menu = [
 
 function displayMenuItems(menuItems) {
     const menuContainer = document.getElementById("menu-container");
-    menuContainer.innerHTML = ""; // Mevcut içeriği temizle
+    menuContainer.innerHTML = "";
 
     menuItems.forEach(item => {
         const menuItem = document.createElement("div");
@@ -137,14 +130,12 @@ function displayMenuItems(menuItems) {
     });
 }
 
-// İlk olarak tüm menüyü göster
 displayMenuItems(menu);
 function filterMenu(category) {
     const filteredMenu = menu.filter(item => item.category === category);
     displayMenuItems(filteredMenu);
 }
 
-// Örnek kullanım
 const buttons = document.querySelectorAll(".filter-button");
 
 buttons.forEach(button => {
